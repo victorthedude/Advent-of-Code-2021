@@ -15,6 +15,11 @@ p, li {
   letter-spacing: 1px;
 }
 
+a {
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 1px;
+}
 
 html {
   background-color: #000000;
@@ -23,7 +28,7 @@ html {
 body {
   width: 600px;
   margin: 0 auto;
-  background-color: #4b4a4a;
+  background-color: #b3b3b3;
   padding: 0 20px 20px 20px;
   border: 5px solid rgb(255, 255, 255);
 }
@@ -40,4 +45,11 @@ img {
   max-width: 50%;
   max-height: 50%;
   margin: 0 auto;
+}
+
+pre code {
+  background-color: #b3b3b3;
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
 }
