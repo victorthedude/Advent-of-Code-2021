@@ -46,14 +46,14 @@ def rec_determine_basin_size(heightmap, basin_points_set, point):
         if neighbour_height > heightmap[row][col] and t not in basin_points_set and neighbour_height != 9:
             rec_determine_basin_size(heightmap, basin_points_set, t)
     
-    return basin_points_set
+    return len(basin_points_set)
 
-basins = []
+basin_sizes = []
 for point in low_points:
-    basin = rec_determine_basin_size(heightmap, set(), point)
-    basins.append(basin)
+    size = rec_determine_basin_size(heightmap, set(), point)
+    basin_sizes.append(size)
 
 ### PART 2 ANSWER:
-basins.sort(key=len, reverse=True)
-result = len(basins[0]) * len(basins[1]) * len(basins[2])
+basin_sizes.sort(reverse=True)
+result = basin_sizes[0] * basin_sizes[1] * basin_sizes[2]
 print(result)
