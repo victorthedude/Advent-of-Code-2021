@@ -13,20 +13,15 @@ for i in range(len(template) - 1):
 
 print("Template: " + template)
 for i in range(1, 41):
-    updates = Counter({ key : 0 for key in pair_rules.keys() })
-    pairs = [p for p in pair_count if pair_count.get(p) > 0]
-    for pair in pairs:
-        count = pair_count.get(pair)
+    current = [(p, pair_count.get(p)) for p in pair_count if pair_count.get(p) > 0]
+    for p in current:
+        pair, count = p[0], p[1]
         new_char = pair_rules.get(pair)
+        
         char_count[new_char] += count
-
-        p1 = pair[0] + new_char
-        p2 = new_char + pair[1]
-        updates[p1] += count
-        updates[p2] += count
-        updates[pair] -= count
-
-    pair_count.update(updates)
+        pair_count[pair[0] + new_char] += count
+        pair_count[new_char + pair[1]] += count
+        pair_count[pair] -= count
 
     if i == 10:
         result = char_count.most_common()
